@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell | profile</title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/profile.css">
+</head>
+<body>
+
+  <!-- navbar -->
+  <div class="container">
+    <div class="container__navbar">
+      <ul class="navbar__ul">
+        <li><a href="/">Home</a></li>
+        <li><a href="/library">Library</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <span class="navbar__logo">Inkwell</span>
+
+      <div class="navbar__login-cart">
+        <a href="/profile" class="navbar__username">{{user.name}}</a>
+        <div class="navbar__logout">
+          <a href="/auth/logout" class="navbar_logout__link">
+            <span>Logout</span>
+          </a>
+        </div>
+        <a href="/profile">
+          <div class="navbar__cart">
+            <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- end of navbar -->
+
+
+
+  <!-- account details section -->
+
+  <div class="account-details__container">
+    <div class="account-details">
+      <h1 class="account-details__h1">My Account</h1>
+      <p class="account-details__greetings">Welcome back, {{user.name}}</p>
+
+      <h2 class="account-details__h2">Account details</h2>
+
+      <div class="account-details__username-info">
+        <div class="username-info__circle-img">
+          <img src="/images/user.jpg" alt="" class="circle-img-user">
+        </div>
+
+        <div class="username-info__right-side">
+          <p class="username-info__name">{{user.name}}</p>
+          <p class="username-info__email">Email: {{user.email}}</p>
+          <button class="username-info__edit-btn">Edit profile</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+{{!-- end account details section --}}
+
+</body>
+</html>

@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell | library</title>
+  <link rel="stylesheet" href="/css/library.css">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  {{!-- boxicons --}}
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+  <!-- navbar -->
+  <div class="container">
+    <div class="container__navbar">
+      <ul class="navbar__ul">
+        <li><a href="/">Home</a></li>
+        <li><a href="/library-page4">Library</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <span class="navbar__logo">Inkwell</span>
+
+      <div class="navbar__login-cart">
+        {{#if user }}
+          <a href="/profile" class="navbar__username">Profile</a>
+          <a href="/auth/logout" class="navbar_logout__link">Logout</a>
+        {{else}}
+          <div class="navbar__login">
+            <a href="/login" class="navbar_login__link">
+              <img src="/images/9041309_person_fill_icon.png" class="navbar__login__img" alt="">
+              <span>Login</span>
+            </a>
+          </div>
+        {{/if}}
+
+        <div class="navbar__cart">
+          <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
+          <div class="navbar__cart-panel">
+            <h2 class="navbar__cart-panel__title">Your cart</h2>
+            {{!-- content --}}
+            <div class="navbar__cart-content">
+
+            </div>
+            {{!-- Total --}}
+            <div class="total">
+              <div class="total-title">Total</div>
+              <div class="total-price">$0</div>
+            </div>
+            {{!-- But button --}}
+            <button type="button" class="btn-buy">Buy Now</button>
+            {{!-- Cart close --}}
+            <i class='bx bx-x' id="close-cart"></i>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- end of navbar -->
+
+
+  <!-- library section -->
+
+  <div class="page__container">
+    <div class="page__container__box">
+      <h1 class="page__container__h1">Library</h1>
+
+      <div class="page__container__searching">
+        <input type="text" id="find" placeholder="Search by title or author" class="page__container__search-box" onkeyup="search()">
+      </div>
+
+      <!-- dropdowns -->
+      <div class="popup">
+        <div class="popup__box">
+          <a href="#" class="popup__link">
+            <div class="popup__genres">
+              <span>Genres</span>
+              <img src="/images/211687_down_arrow_icon.png" class="popups__genres__arrow-down">
+            </div>
+          </a>
+          <div class="popup__show-ul">
+            <ul class="popup__ul">
+              <li><a href="">Fantasy</a></li>
+              <li><a href="">Psychology</a></li>
+              <li><a href="">Fiction</a></li>
+              <li><a href="">Non-fiction</a></li>
+              <li><a href="">Horror</a></li>
+              <li><a href="">Philosophy</a></li>
+              <li><a href="">Dystopia</a></li>
+              <li><a href="">Novel</a></li>
+              <li><a href="">Crime</a></li>
+              <li><a href="">Self-help</a></li>
+              <li><a href="">Personal growth</a></li>
+              <li><a href="">Leadership</a></li>
+              <li><a href="">Diary</a></li>
+              <li><a href="">Finance</a></li>
+              <li><a href="">Fable</a></li>
+              <li><a href="">Treatise</a></li>
+              <li><a href="">Thriller</a></li>
+              <li><a href="">Diet</a></li>
+              <li><a href="">Biography</a></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- books -->
+
+      <section class="library__container">
+        <!-- Atomic habits -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/atomic-habits.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Atomic habits</p>
+              <p class="book-info__copy__author"><b>Author:</b> James Clear</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Self-help</p>
+              <p class="book-info__copy__date"><b>Date:</b> October 2018</p>
+              <p class="book-info__copy__price">$13.79</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Thinking, Fast and Slow -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/fast-and-slow.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Thinking, Fast and Slow</p>
+              <p class="book-info__copy__author"><b>Author:</b> D. Kahneman</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction</p>
+              <p class="book-info__copy__date"><b>Date:</b> October 2011</p>
+              <p class="book-info__copy__price">$17.54</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The Art Of War -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/art-of-war.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The Art Of War</p>
+              <p class="book-info__copy__author"><b>Author:</b> Sun Tzu</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction, Treatise</p>
+              <p class="book-info__copy__date"><b>Date:</b> 5th century BC</p>
+              <p class="book-info__copy__price">$16.20</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The Biohacker's Guide -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/smarter-not-harder.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The Biohacker's Guide</p>
+              <p class="book-info__copy__author"><b>Author:</b> Dave Asprey</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Diet</p>
+              <p class="book-info__copy__date"><b>Date:</b> February 2023</p>
+              <p class="book-info__copy__price">$18.39</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Principles -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/principles.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Principles</p>
+              <p class="book-info__copy__author"><b>Author:</b> Ray Dalio</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Biography</p>
+              <p class="book-info__copy__date"><b>Date:</b> September 2017</p>
+              <p class="book-info__copy__price">$18.63</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Bitcoin -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/bitcoin.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Bitcoin</p>
+              <p class="book-info__copy__author"><b>Author:</b> Satoshi Nakamoto</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Finance</p>
+              <p class="book-info__copy__date"><b>Date:</b> November 2008</p>
+              <p class="book-info__copy__price">$3.50</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Young Forever -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/young-forever.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Young Forever</p>
+              <p class="book-info__copy__author"><b>Author:</b> Mark Hyman</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Diet</p>
+              <p class="book-info__copy__date"><b>Date:</b> February 2023</p>
+              <p class="book-info__copy__price">$16.00</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Misery -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/misery.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Misery</p>
+              <p class="book-info__copy__author"><b>Author:</b> Stephen King</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Horror, Thriller</p>
+              <p class="book-info__copy__date"><b>Date:</b> June 1987</p>
+              <p class="book-info__copy__price">$9.99</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Awaken the Giant Within -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/awaken.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Awaken the Giant Within</p>
+              <p class="book-info__copy__author"><b>Author:</b> T. Robbins</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction, self-help</p>
+              <p class="book-info__copy__date"><b>Date:</b> April 1991</p>
+              <p class="book-info__copy__price">$15.68</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Show your Work -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/show-your-work.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Show your Work</p>
+              <p class="book-info__copy__author"><b>Author:</b> Ostin Cleon</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction, Self-help</p>
+              <p class="book-info__copy__date"><b>Date:</b> March 2014</p>
+              <p class="book-info__copy__price">$13.49</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The Ego and the Id -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/ego.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The Ego and the Id</p>
+              <p class="book-info__copy__author"><b>Author:</b> S. Freud</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Psychology</p>
+              <p class="book-info__copy__date"><b>Date:</b> April 1923</p>
+              <p class="book-info__copy__price">$12.99</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Meditations -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/meditations.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Meditations</p>
+              <p class="book-info__copy__author"><b>Author:</b> Marcus Aurelius</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction, Philosophy</p>
+              <p class="book-info__copy__date"><b>Date:</b> 2nd century AD</p>
+              <p class="book-info__copy__price">$8.99</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+
+      </section>
+      
+      <!-- pagination -->
+      <div class="pagination">
+        <a href="/library-page3" class="prev">&laquo; Previous</a>
+        <a href="/library">1</a>
+        <a href="/library-page2">2</a>
+        <a href="/library-page3">3</a>
+        <a href="/library-page4" class="active">4</a>
+        <a href="/library-page4" class="next">Next &raquo;</a>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <script src="/js/filter-search.js"></script>
+  <script src="/js/certain-genre.js"></script>
+  <script src="/js/onclick-genres.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

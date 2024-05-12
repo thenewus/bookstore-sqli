@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell | Sign up</title>
+  <link rel="stylesheet" href="/css/signup.css">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+</head>
+<body>
+
+  <!-- navbar -->
+  <div class="container">
+    <div class="container__navbar">
+      <ul class="navbar__ul">
+        <li><a href="/">Home</a></li>
+        <li><a href="/library">Library</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <span class="navbar__logo">Inkwell</span>
+
+      <div class="navbar__login-cart">
+        <div class="navbar__login">
+          <a href="/login" class="navbar_login__link">
+            <img src="/images/9041309_person_fill_icon.png" class="navbar__login__img" alt="">
+            <span>Login</span>
+          </a>
+        </div>
+        <a href="">
+          <div class="navbar__cart">
+            <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- end of navbar -->
+
+
+
+  <!-- signup container -->
+
+  <div class="container-login">
+    <div class="container-login__img">
+      <img src="/images/login-left.png" alt="">
+    </div>
+    <div class="container-login__main">
+      <div class="container-login__form">
+        <span class="container-login__form__header">Sign Up</span>
+        <form action="/auth/signup" method="post">
+          <label for="name" class="label__trigger">Full name:</label>
+          <input type="text" id="name" placeholder="Full name" class="container-login__form__name" name="name" required>
+
+          <label for="email" class="label__trigger">Email:</label>
+          <input type="email" id="email" placeholder="Email" class="container-login__form__email" name="email" required>
+
+          <label for="password" class="label__trigger">Password:</label>
+          <input type="password" id="password" placeholder="Password" class="container-login__form__password" name="password" required>
+
+          <label for="passwordConf" class="label__trigger">Confirm password:</label>
+          <input type="password" id="passwordConf" placeholder="Confirm password" class="container-login__form__confirm" name="passwordConf" required>
+          
+          <button type="submit" class="sign-up__main__btn">Sign Up</button>
+          
+        </form>
+        <div class="login">
+          <span class="login__question">Already a member?</span>
+          <a href="/login" class="login__link">Login now</a>
+        </div>
+        {{#if message}}
+          <h4 class="alert-danger">{{message}}</h4>
+        {{/if}}
+      </div>      
+    </div>
+  </div>
+
+{{!-- signup container --}}
+  
+</body>
+</html>

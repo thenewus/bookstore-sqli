@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell | library</title>
+  <link rel="stylesheet" href="/css/library.css">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  {{!-- boxicons --}}
+  <link rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+  <!-- navbar -->
+  <div class="container">
+    <div class="container__navbar">
+      <ul class="navbar__ul">
+        <li><a href="/">Home</a></li>
+        <li><a href="/library-page3">Library</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <span class="navbar__logo">Inkwell</span>
+
+      <div class="navbar__login-cart">
+        {{#if user }}
+          <a href="/profile" class="navbar__username">Profile</a>
+          <a href="/auth/logout" class="navbar_logout__link">Logout</a>
+        {{else}}
+          <div class="navbar__login">
+            <a href="/login" class="navbar_login__link">
+              <img src="/images/9041309_person_fill_icon.png" class="navbar__login__img" alt="">
+              <span>Login</span>
+            </a>
+          </div>
+        {{/if}}
+
+        <div class="navbar__cart">
+          <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
+          <div class="navbar__cart-panel">
+            <h2 class="navbar__cart-panel__title">Your cart</h2>
+            {{!-- content --}}
+            <div class="navbar__cart-content">
+
+            </div>
+            {{!-- Total --}}
+            <div class="total">
+              <div class="total-title">Total</div>
+              <div class="total-price">$0</div>
+            </div>
+            {{!-- But button --}}
+            <button type="button" class="btn-buy">Buy Now</button>
+            {{!-- Cart close --}}
+            <i class='bx bx-x' id="close-cart"></i>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- end of navbar -->
+
+
+  <!-- library section -->
+
+  <div class="page__container">
+    <div class="page__container__box">
+      <h1 class="page__container__h1">Library</h1>
+
+      <div class="page__container__searching">
+        <input type="text" id="find" placeholder="Search by title or author" class="page__container__search-box" onkeyup="search()">
+      </div>
+
+      <!-- dropdowns -->
+      <div class="popup">
+        <div class="popup__box">
+          <a href="#" class="popup__link">
+            <div class="popup__genres">
+              <span>Genres</span>
+              <img src="/images/211687_down_arrow_icon.png" class="popups__genres__arrow-down">
+            </div>
+          </a>
+          <div class="popup__show-ul">
+            <ul class="popup__ul">
+              <li><a href="">Fantasy</a></li>
+              <li><a href="">Psychology</a></li>
+              <li><a href="">Fiction</a></li>
+              <li><a href="">Non-fiction</a></li>
+              <li><a href="">Horror</a></li>
+              <li><a href="">Philosophy</a></li>
+              <li><a href="">Dystopia</a></li>
+              <li><a href="">Novel</a></li>
+              <li><a href="">Crime</a></li>
+              <li><a href="">Self-help</a></li>
+              <li><a href="">Personal growth</a></li>
+              <li><a href="">Leadership</a></li>
+              <li><a href="">Diary</a></li>
+              <li><a href="">Finance</a></li>
+              <li><a href="">Fable</a></li>
+              <li><a href="">Treatise</a></li>
+              <li><a href="">Thriller</a></li>
+              <li><a href="">Diet</a></li>
+              <li><a href="">Biography</a></li>
+              <li></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- books -->
+
+      <section class="library__container">
+        <!-- Notes from underground -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/notes-from-underground.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Notes from underground</p>
+              <p class="book-info__copy__author"><b>Author:</b> F. Dostoevsky</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Philosophy</p>
+              <p class="book-info__copy__date"><b>Date:</b> April 1864</p>
+              <p class="book-info__copy__price">$10.86</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Red book -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/redbook.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Red book</p>
+              <p class="book-info__copy__author"><b>Author:</b> Carl Jung</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Diary, Psychology</p>
+              <p class="book-info__copy__date"><b>Date:</b> September 2009</p>
+              <p class="book-info__copy__price">$33.24</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Rich dad poor dad -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/richdad.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Rich dad poor dad</p>
+              <p class="book-info__copy__author"><b>Author:</b> Robert Kiyosaki</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction, Finance</p>
+              <p class="book-info__copy__date"><b>Date:</b> August 1997</p>
+              <p class="book-info__copy__price">$12.58</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The Richest Man in Babylon -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/riches-man-in-babylon.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The Richest Man in Babylon</p>
+              <p class="book-info__copy__author"><b>Author:</b> G.S. Clason</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Self-help, Finance</p>
+              <p class="book-info__copy__date"><b>Date:</b> July 1926</p>
+              <p class="book-info__copy__price">$14.99</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The Undiscovered Self -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/the-undiscovered-self.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The Undiscovered Self</p>
+              <p class="book-info__copy__author"><b>Author:</b> Carl Jung</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Psychology</p>
+              <p class="book-info__copy__date"><b>Date:</b> June 1957</p>
+              <p class="book-info__copy__price">$7.99</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The mind of giants -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/themindofgiants.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The mind of giants</p>
+              <p class="book-info__copy__author"><b>Author:</b> Audrey Schwartz</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Self-help, Psychology</p>
+              <p class="book-info__copy__date"><b>Date:</b> November 2005</p>
+              <p class="book-info__copy__price">$16.50</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The Wim Hof Method -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/wim-hof.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The Wim Hof Method</p>
+              <p class="book-info__copy__author"><b>Author:</b> Wim Hof</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction, Self-help</p>
+              <p class="book-info__copy__date"><b>Date:</b> September 2020</p>
+              <p class="book-info__copy__price">$16.59</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The World of Ice & Fire -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/worldoficeandfire.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The World of Ice & Fire</p>
+              <p class="book-info__copy__author"><b>Author:</b> G. Martin</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Fantasy</p>
+              <p class="book-info__copy__date"><b>Date:</b> October 2014</p>
+              <p class="book-info__copy__price">$27.89</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The little prince -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/little-prince.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The little prince</p>
+              <p class="book-info__copy__author"><b>Author:</b> A.d. Saint-Exupéry</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Fable</p>
+              <p class="book-info__copy__date"><b>Date:</b> April 1943</p>
+              <p class="book-info__copy__price">$8.99</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- It -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/it.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">It</p>
+              <p class="book-info__copy__author"><b>Author:</b> Stephen King</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Thriller, Horror</p>
+              <p class="book-info__copy__date"><b>Date:</b> September 1986</p>
+              <p class="book-info__copy__price">$12.99</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Carrie -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/carrie-book-cover.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">Carrie</p>
+              <p class="book-info__copy__author"><b>Author:</b> Stephen King</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Horror</p>
+              <p class="book-info__copy__date"><b>Date:</b> April 1974</p>
+              <p class="book-info__copy__price">$7.48</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- The Book of Five Rings -->
+        <div class="library__container__block product">
+          <a href="#">
+            <div class="library__container__book-cover">
+              <img src="/images/library images/book-of-five-rings.jpg" alt="" class="book-cover-img">
+            </div>
+          </a>
+          <div class="library__container__book-info">
+            <div class="book-info__copy">
+              <p class="book-info__copy__title">The Book of Five Rings</p>
+              <p class="book-info__copy__author"><b>Author:</b> M. Musashi</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> Self-help, Treatise</p>
+              <p class="book-info__copy__date"><b>Date:</b> March 1642</p>
+              <p class="book-info__copy__price">$8.64</p>
+            </div>
+
+            <div class="book-info__grid-end">
+              <button class="book-info__add-to-cart">
+                Add to cart
+              </button>
+            </div>
+
+          </div>
+        </div>
+
+
+      </section>
+      
+      <!-- pagination -->
+      <div class="pagination">
+        <a href="/library-page2" class="prev">&laquo; Previous</a>
+        <a href="/library">1</a>
+        <a href="/library-page2">2</a>
+        <a href="/library-page3" class="active">3</a>
+        <a href="/library-page4">4</a>
+        <a href="/library-page4" class="next">Next &raquo;</a>
+      </div>
+      
+
+    </div>
+  </div>
+
+  <script src="/js/filter-search.js"></script>
+  <script src="/js/onclick-genres.js"></script>
+  <script src="/js/certain-genre.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

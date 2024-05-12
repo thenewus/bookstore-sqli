@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell</title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+  <!-- navbar -->
+  <div class="container">
+    <div class="container__navbar">
+      <ul class="navbar__ul">
+        <li><a href="/">Home</a></li>
+        <li><a href="/library">Library</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <span class="navbar__logo">Inkwell</span>
+
+      <div class="navbar__login-cart">
+        {{#if user }}
+          <a href="/profile" class="navbar__username">Profile</a>
+          <a href="/auth/logout" class="navbar_logout__link">Logout</a>
+        {{else}}
+          <div class="navbar__login">
+            <a href="/login" class="navbar_login__link">
+              <img src="/images/9041309_person_fill_icon.png" class="navbar__login__img" alt="">
+              <span>Login</span>
+            </a>
+          </div>
+        {{/if}}
+
+        
+        <a href="">
+          <div class="navbar__cart">
+            <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
+          </div>
+        </a>
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- end of navbar -->
+
+
+  <!-- hero section -->
+
+  <div class="hero">
+    <img src="/images/featured-1-768x432.png.webp" class="hero__img" alt="">
+    <p class="hero__paragraph">Immerse yourself in a world where stories come alive on every shelf. 
+      Whether it is the thrill of exciting mystery, the romance of star-crossed lovers, or the wisdom of timeless classics.</p>
+    <a href="/library" class="hero__btn__link">
+      <button class="hero__btn">Explore the library</button>
+    </a>
+  </div>
+
+  <!-- end of hero section -->
+
+</body>
+
+</html>

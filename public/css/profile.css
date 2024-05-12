@@ -1,0 +1,182 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+  font-family: "Inter", sans-serif;
+}
+
+:root {
+  --black: black;
+  --white: white;
+  --light-grey: rgba(0, 0, 0, 0.5);
+  --dark-grey:rgba(0, 0, 0, 0.75);
+
+}
+
+body {
+  background-color: var(--white);
+  overflow-y: hidden;
+}
+a {
+  text-decoration: none;
+}
+
+/* ------------------------navbar----------------------------------- */
+
+.container {
+  width: 100%;
+
+}
+
+.container__navbar {
+  display: flex;
+  height: 80px;
+  justify-content: space-between;
+  align-items: center;
+  background-color: var(--black);
+  padding: 0 10%;
+}
+
+.navbar__ul {
+  display: flex;
+  gap: 25px;
+
+}
+
+.navbar__ul a {
+  color: var(--white);
+}
+
+.navbar__logo {
+  color: var(--white);
+  font-weight: 800;
+  font-size: 22px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+
+
+.navbar__cart__img {
+  width: 20px;
+}
+
+.navbar__login-cart {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.navbar__logout {
+  display: flex;
+  justify-content: center;
+  width: 90px;
+  height: 35px;
+  background-color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.navbar__username {
+  color: var(--white);
+  font-weight: bold;
+}
+
+.navbar_logout__link {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--black);
+
+}
+
+.navbar__cart {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 35px;
+  height: 35px;
+  background-color: var(--white);
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* ------------------------end of navbar----------------------------------- */
+
+
+/* account details section */
+
+.account-details__container {
+  display: flex;
+  justify-content: center;
+  
+}
+
+.account-details {
+  width: 80%;
+}
+
+.account-details__h1 {
+  font-size: 36px;
+  text-align: center;
+  margin-top: 35px;
+}
+
+.account-details__greetings {
+  text-align: center;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.account-details__h2 {
+  margin-top: 15px;
+  font-size: 34px;
+}
+
+.account-details__username-info {
+  margin-top: 30px;
+  display: flex;
+  gap: 30px;
+  align-items: center;
+  border: 1px solid var(--black);
+  border-radius: 10px;
+  width: 600px;
+  padding: 20px 0 20px 10px;
+}
+
+
+
+.username-info__name {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.username-info__email {
+  font-size: 24px;
+  font-weight: 600;
+  margin-top: 5px;
+}
+
+.username-info__edit-btn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px;
+  height: 25px;
+  border: 0.5px solid var(--light-grey);
+  border-radius: 4px;
+  color: var(--dark-grey);
+  background-color: var(--white);
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+  
+/* user image */
+.circle-img-user {
+  width: 80px;
+}

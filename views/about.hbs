@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inkwell | About</title>
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="/css/about.css">
+
+</head>
+<body>
+  <!-- navbar -->
+  <div class="container">
+    <div class="container__navbar">
+      <ul class="navbar__ul">
+        <li><a href="/">Home</a></li>
+        <li><a href="/library">Library</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <span class="navbar__logo">Inkwell</span>
+
+      <div class="navbar__login-cart">
+        {{#if user }}
+          <a href="/profile" class="navbar__username">Profile</a>
+          <a href="/auth/logout" class="navbar_logout__link">Logout</a>
+        {{else}}
+          <div class="navbar__login">
+            <a href="/login" class="navbar_login__link">
+              <img src="/images/9041309_person_fill_icon.png" class="navbar__login__img" alt="">
+              <span>Login</span>
+            </a>
+          </div>
+        {{/if}}
+
+        <a href="">
+          <div class="navbar__cart">
+            <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
+          </div>
+        </a>
+
+      </div>
+    </div>
+  </div>
+
+  <!-- end of navbar -->
+
+  <!-- about section -->
+
+  <div class="about">
+    <div class="about__left">
+      <h1 class="about__left__h1">Uncover the Beauty of Books with Inkwell</h1>
+      <p class="about__left__paragraph">Dive into a world of captivating visuals curated by creative minds, complementing the essence of literature.</p>
+      
+      <div class="about__left__btns">
+        <a href="/library">
+          <div class="about__left__find-book-btn">
+            Find the perfect book
+          </div>
+        </a>
+        <a href="/signup">
+          <div class="about__left__sign-up-btn">
+            Sign up for free
+          </div>
+        </a>
+      </div>
+    </div>
+
+    <div class="about__right">
+      <img src="/images/about main.jpg" class="about__right__img" alt="">
+    </div>
+  </div>
+
+  <!-- end of about section -->
+  
+</body>
+</html>
