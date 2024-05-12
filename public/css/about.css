@@ -187,7 +187,7 @@ a {
 
 
 
-@media only screen and (min-width: 64.063em) {
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
     .about {
         gap: 150px;
         margin-top: 50px;

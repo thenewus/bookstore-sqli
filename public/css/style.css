@@ -164,7 +164,7 @@ body {
 
 /* media queries */
 /* min-width 1025px, large screens */
-@media only screen and (min-width: 64.063em) {
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
     .hero__img {
         width: 440px;
         margin-top: -50px;

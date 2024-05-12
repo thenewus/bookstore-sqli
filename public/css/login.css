@@ -18,7 +18,7 @@
 
 body {
   background-color: var(--black);
-  /* overflow-y: hidden; */
+  overflow-y: hidden;
 }
 a {
   text-decoration: none;
@@ -209,7 +209,7 @@ a {
   margin-top: 12px;
 }
 
-@media only screen and (min-width: 64.063em) {
+@media only screen and (min-width: 992px) and (max-width: 1200px) {
     .container-login {
         display: grid;
         grid-template-columns: 50% 50%;
