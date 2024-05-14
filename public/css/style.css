@@ -19,6 +19,27 @@ body {
   background-color: var(--black);
 }
 
+
+/* navbar logout profile */
+.navbar__username {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar_logout__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 35px;
+  background-color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--black);
+}
+
 /* ------------------------navbar----------------------------------- */
 
 .container {
@@ -141,24 +162,7 @@ body {
 
 /* end of hero section */
 
-.navbar__username {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: bold;
-}
 
-.navbar_logout__link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90px;
-  height: 35px;
-  background-color: var(--white);
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--black);
-}
 
 
 
