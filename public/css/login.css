@@ -209,7 +209,7 @@ a {
   margin-top: 12px;
 }
 
-@media only screen and (min-width: 992px) and (max-width: 1200px) {
+@media only screen and (min-width: 992px) and (max-width: 1400px) {
     .container-login {
         display: grid;
         grid-template-columns: 50% 50%;
