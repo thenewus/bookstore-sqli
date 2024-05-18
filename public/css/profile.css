@@ -161,20 +161,6 @@ a {
   margin-top: 5px;
 }
 
-.username-info__edit-btn {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 25px;
-  border: 0.5px solid var(--light-grey);
-  border-radius: 4px;
-  color: var(--dark-grey);
-  background-color: var(--white);
-  cursor: pointer;
-  margin-top: 15px;
-}
-
   
 /* user image */
 .circle-img-user {

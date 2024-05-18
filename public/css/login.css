@@ -156,18 +156,7 @@ a {
   display: none;
 }
 
-.container-login__form__forgot {
-  margin-top: 10px;
-  width: 300px;
-  display: flex;
-  justify-content: end;
-}
 
-.container-login__form__forgot__link {
-  color: var(--light-grey);
-  font-size: 12px;
-  font-weight: 600;
-}
 
 .login__main__btn {
   margin-top: 20px;
