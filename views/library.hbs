@@ -3,12 +3,10 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Inkwell | library</title>
+  <title>Inkwell | Library</title>
   <link rel="stylesheet" href="/css/library.css">
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
-  {{!-- boxicons --}}
-  <link rel="stylesheet"
-  href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
   <!-- navbar -->
@@ -19,9 +17,7 @@
         <li><a href="/library">Library</a></li>
         <li><a href="/about">About</a></li>
       </ul>
-
       <span class="navbar__logo">Inkwell</span>
-
       <div class="navbar__login-cart">
         {{#if user }}
           <a href="/profile" class="navbar__username">Profile</a>
@@ -34,47 +30,30 @@
             </a>
           </div>
         {{/if}}
-
-
         <div class="navbar__cart">
           <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
           <div class="navbar__cart-panel">
             <h2 class="navbar__cart-panel__title">Your cart</h2>
-            {{!-- content --}}
-            <div class="navbar__cart-content">
-
-            </div>
-            {{!-- Total --}}
+            <div class="navbar__cart-content"></div>
             <div class="total">
               <div class="total-title">Total</div>
               <div class="total-price">$0</div>
             </div>
-            {{!-- But button --}}
             <button type="button" class="btn-buy">Buy Now</button>
-            {{!-- Cart close --}}
             <i class='bx bx-x' id="close-cart"></i>
-
           </div>
         </div>
-
-
       </div>
     </div>
   </div>
-
   <!-- end of navbar -->
-
-
   <!-- library section -->
-
   <div class="page__container">
     <div class="page__container__box">
       <h1 class="page__container__h1">Library</h1>
-
       <div class="page__container__searching">
         <input type="text" id="find" placeholder="Search by title or author" class="page__container__search-box" onkeyup="search()">
       </div>
-
       <!-- dropdowns -->
       <div class="popup">
         <div class="popup__box">
@@ -110,328 +89,35 @@
           </div>
         </div>
       </div>
-
       <!-- books -->
-
       <section class="library__container">
-        <!-- dune book -->
+        {{#each books}}
         <div class="library__container__block product">
-          <a href="/dune">
+          <a href="/book/{{this.id}}">
             <div class="library__container__book-cover">
-              <img src="/images/library images/dunefrank.jpg" class="book-cover-img">
+              <img src="{{this.image}}" class="book-cover-img">
             </div>
           </a>
           <div class="library__container__book-info">
             <div class="book-info__copy">
-              <p class="book-info__copy__title">Dune</p>
-              <p class="book-info__copy__author"><b>Author:</b> Frank Herbert</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Fantasy</p>
-              <p class="book-info__copy__date"><b>Date:</b> August 1965</p>
-              <p class="book-info__copy__price">$10.99</p>
+              <p class="book-info__copy__title">{{this.title}}</p>
+              <p class="book-info__copy__author"><b>Author:</b> {{this.author}}</p>
+              <p class="book-info__copy__genre"><b>Genre:</b> {{this.genre}}</p>
+              <p class="book-info__copy__date"><b>Date:</b> {{this.date}}</p>
+              <p class="book-info__copy__price">{{this.price}}</p>
             </div>
-
             <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
+              <button class="book-info__add-to-cart">Add to cart</button>
             </div>
-
           </div>
         </div>
-
-        <!-- farenheit 451 -->
-        <div class="library__container__block product">
-          <a href="/farenheit">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/451.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">Fahrenheit 451</p>
-              <p class="book-info__copy__author"><b>Author:</b> Ray Bradbury</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Dystopia</p>
-              <p class="book-info__copy__date"><b>Date:</b> October 1953</p>
-              <p class="book-info__copy__price">$9.80</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- game of thrones -->
-        <div class="library__container__block product">
-          <a href="/got">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/gameofthrones.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">Game of Thrones</p>
-              <p class="book-info__copy__author"><b>Author:</b> G. Martin</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Fantasy</p>
-              <p class="book-info__copy__date"><b>Date:</b> August 1996</p>
-              <p class="book-info__copy__price">$7.99</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- 1984 -->
-        <div class="library__container__block product">
-          <a href="/1984">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/1984.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">1984</p>
-              <p class="book-info__copy__author"><b>Author:</b> George Orwell</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Dystopia</p>
-              <p class="book-info__copy__date"><b>Date:</b> June 1949</p>
-              <p class="book-info__copy__price">$11.99</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- crime and punishment -->
-        <div class="library__container__block product">
-          <a href="/crimeandp">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/crimeandpunishment.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">Crime and Punishment</p>
-              <p class="book-info__copy__author"><b>Author:</b> F. Dostoevsky</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Crime</p>
-              <p class="book-info__copy__date"><b>Date:</b> December 1866</p>
-              <p class="book-info__copy__price">$6.99</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- got: fire and blood -->
-        <div class="library__container__block product">
-          <a href="/fireandblood">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/fireandblood.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">Fire and Blood</p>
-              <p class="book-info__copy__author"><b>Author:</b> G. Martin</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Fantasy</p>
-              <p class="book-info__copy__date"><b>Date:</b> November 2018</p>
-              <p class="book-info__copy__price">$19.10</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- 12 rules for life -->
-        <div class="library__container__block product">
-          <a href="/12rules">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/12rules.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">12 rules for life</p>
-              <p class="book-info__copy__author"><b>Author:</b> J. Peterson</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Non-fiction, Self-help</p>
-              <p class="book-info__copy__date"><b>Date:</b> January 2018</p>
-              <p class="book-info__copy__price">$15.94</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- 33 strategies for war -->
-        <div class="library__container__block product">
-          <a href="/33strategies">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/33strategiesRobert.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">33 strategies of war</p>
-              <p class="book-info__copy__author"><b>Author:</b> R. Greene</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Personal growth</p>
-              <p class="book-info__copy__date"><b>Date:</b> January 2006</p>
-              <p class="book-info__copy__price">$19.69</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- 48 laws of power -->
-        <div class="library__container__block product">
-          <a href="/48laws">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/48lawsofpower.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">48 laws of power</p>
-              <p class="book-info__copy__author"><b>Author:</b> R. Greene</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Personal growth</p>
-              <p class="book-info__copy__date"><b>Date:</b> September 2000</p>
-              <p class="book-info__copy__price">$14.55</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- beyond order -->
-        <div class="library__container__block product">
-          <a href="/beyondorder">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/Beyond_Order_12_More_Rules_For_Life_1st_Edition_Cover_Canadian.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">Beyond Order</p>
-              <p class="book-info__copy__author"><b>Author:</b> J. Peterson</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Self-help</p>
-              <p class="book-info__copy__date"><b>Date:</b> March 2021</p>
-              <p class="book-info__copy__price">$16.40</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- brothers karamazov -->
-        <div class="library__container__block product">
-          <a href="/karamazov">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/brotherskaramaz.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">Brothers Karamazov</p>
-              <p class="book-info__copy__author"><b>Author:</b> F. Dostoevsky</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Philosophy</p>
-              <p class="book-info__copy__date"><b>Date:</b> November 1880</p>
-              <p class="book-info__copy__price">$16.20</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- hp chamber of secrets -->
-        <div class="library__container__block product">
-          <a href="/chamber">
-            <div class="library__container__book-cover">
-              <img src="/images/library images/harrychamberofsecrets.jpg" alt="" class="book-cover-img">
-            </div>
-          </a>
-          <div class="library__container__book-info">
-            <div class="book-info__copy">
-              <p class="book-info__copy__title">HP: the Chamber of Secrets</p>
-              <p class="book-info__copy__author"><b>Author:</b> J.K. Rowling</p>
-              <p class="book-info__copy__genre"><b>Genre:</b> Novel, Fantasy</p>
-              <p class="book-info__copy__date"><b>Date:</b> July 1998</p>
-              <p class="book-info__copy__price">$15.72</p>
-            </div>
-
-            <div class="book-info__grid-end">
-              <button class="book-info__add-to-cart">
-                Add to cart
-              </button>
-            </div>
-
-          </div>
-        </div>
-
+        {{/each}}
       </section>
-      
-
-      
-      <!-- pagination -->
-      <div class="pagination">
-        <a href="/library" class="prev">&laquo; Previous</a>
-        <a href="/library" class="active">1</a>
-        <a href="/library-page2">2</a>
-        <a href="/library-page3">3</a>
-        <a href="/library-page4">4</a>
-        <a href="/library-page2" class="next">Next &raquo;</a>
-      </div>
-      
 
     </div>
   </div>
 
+  
   <script src="/js/filter-search.js"></script>
   <script src="/js/onclick-genres.js"></script>
   <script src="/js/certain-genre.js"></script>

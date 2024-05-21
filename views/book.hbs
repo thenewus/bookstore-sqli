@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{title}} | Library</title>
+  <link rel="stylesheet" href="/css/library.css">
+  <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
+</head>
+<body>
+  <!-- navbar -->
+  <div class="container">
+    <div class="container__navbar">
+      <ul class="navbar__ul">
+        <li><a href="/">Home</a></li>
+        <li><a href="/library">Library</a></li>
+        <li><a href="/about">About</a></li>
+      </ul>
+
+      <span class="navbar__logo">Inkwell</span>
+
+      <div class="navbar__login-cart">
+        {{#if user }}
+          <a href="/profile" class="navbar__username">Profile</a>
+          <a href="/auth/logout" class="navbar_logout__link">Logout</a>
+        {{else}}
+          <div class="navbar__login">
+            <a href="/login" class="navbar_login__link">
+              <img src="/images/9041309_person_fill_icon.png" class="navbar__login__img" alt="">
+              <span>Login</span>
+            </a>
+          </div>
+        {{/if}}
+
+        <div class="navbar__cart">
+          <img src="/images/shopping-cart.png" class="navbar__cart__img" alt="">
+          <div class="navbar__cart-panel">
+            <h2 class="navbar__cart-panel__title">Your cart</h2>
+            <div class="navbar__cart-content"></div>
+            <div class="total">
+              <div class="total-title">Total</div>
+              <div class="total-price">$0</div>
+            </div>
+            <button type="button" class="btn-buy">Buy Now</button>
+            <i class='bx bx-x' id="close-cart"></i>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- end of navbar -->
+
+  <!-- book section -->
+  <div class="library__container__block product">
+    <div class="library__container__book-cover">
+      <img src="{{image}}" class="book-cover-img">
+    </div>
+    <div class="library__container__book-info">
+      <div class="book-info__copy">
+        <h2 class="book-info__copy__title">{{title}}</h2>
+        <p class="book-info__copy__author"><b>Author:</b> {{author}}</p>
+        <p class="book-info__copy__genre"><b>Genre:</b> {{genre}}</p>
+        <p class="book-info__copy__date"><b>Date:</b> {{date}}</p>
+        <p class="book-info__copy__price">{{price}}</p>
+      </div>
+      <div class="book-info__grid-end">
+        <button class="book-info__add-to-cart">Add to cart</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="/js/filter-search.js"></script>
+  <script src="/js/onclick-genres.js"></script>
+  <script src="/js/certain-genre.js"></script>
+  <script src="/js/cart.js"></script>
+</body>
+</html>

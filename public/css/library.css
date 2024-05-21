@@ -23,7 +23,8 @@ body {
 
 .container {
   width: 100%;
-
+  position: fixed;
+  top: 0;
 }
 
 .container__navbar {
@@ -33,6 +34,7 @@ body {
   align-items: center;
   background-color: var(--black);
   padding: 0 10%;
+
 }
 
 .navbar__ul {
@@ -109,6 +111,7 @@ body {
 .page__container {
   display: flex;
   justify-content: center;
+  margin-top: 80px;
 }
 
 .page__container__box {
