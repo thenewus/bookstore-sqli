@@ -13,7 +13,6 @@ router.get("/signup", (req, res) => {
   res.render("signup")
 })
 
-
 router.get("/login", (req, res) => {
   res.render("login")
 })
@@ -33,7 +32,6 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
   } else {
     res.redirect('/login');
   }
-  
 })
 
 
@@ -473,10 +471,10 @@ const books = [
   
 ];
 
+
 router.get('/library', authController.isLoggedIn, (req, res) => {
   res.render('library', { books, user: req.user });
 });
-
 
 // Dynamic route to render individual book pages
 router.get('/book/:bookId', authController.isLoggedIn, (req, res) => {
@@ -489,8 +487,6 @@ router.get('/book/:bookId', authController.isLoggedIn, (req, res) => {
     res.status(404).render('404', { user: req.user });
   }
 });
-
-
 
 
 module.exports = router

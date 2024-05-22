@@ -17,8 +17,11 @@
 
 body {
   background-color: var(--white);
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-
 
 /* navbar */
 
@@ -121,147 +124,11 @@ body {
 /* end of navbar */
 
 
-/* library section */
-
-.page__container {
-  display: flex;
-  justify-content: center;
-  margin-top: 80px;
-}
-
-.page__container__box {
-  width: 80%;
-}
-
-.page__container__h1 {
-  font-weight: 800;
-  font-size: 36px;
-  text-align: center;
-  margin-top: 30px;
-}
-
-.page__container__searching {
-  display: flex;
-  justify-content: center;
-}
-
-.page__container__search-box {
-  width: 400px;
-  height: 50px;
-  color: var(--black);
-  margin-top: 20px;
-  outline: none;
-  border: 0.5px solid var(--dark-grey);
-  border-radius: 6px;
-  font-size: 14px;
-  padding-left: 15px;
-}
-
-
-/* popups */
-
-.popups__genres__arrow-down {
-  width: 24px;
-}
-
-.popup {
-  display: flex;
-  gap: 30px;
-  margin-top: 25px;
-  justify-content: center;
-}
-
-.popup__box {
-  position: relative;
-}
-
-.popup__link {
-  text-decoration: none;
-  color: var(--black);
-}
-
-.popup__show-ul {
-  display: none;
-}
-
-.popup__ul {
-  position: absolute;
-  left: -310px;
-  margin-top: 10px;
-  display: grid;
-  grid-template-columns: repeat(4, 180px);
-  grid-template-rows: repeat(5, 36px);
-  border: 1px solid var(--black);
-  padding: 10px;
-  background: var(--white);
-  border-radius: 7px;
-}
-
-.popup__ul li {
-  padding: 5px 10px;
-  background: var(--white);
-  text-align: center;
-  border-radius: 7px;
-}
-
-.popup__ul li:hover:not(:last-child) {
-  background: var(--black);
-  transition: .7s ease-in;
-}
-
-.popup__ul a {
-  text-decoration: none;
-  color: var(--black);
-}
-
-.popup__ul li:hover a {
-  color: var(--white);
-}
-
-.popup__genres {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  width: 110px;
-  height: 35px;
-  border: 0.5px solid var(--dark-grey);
-  border-radius: 7px;
-  cursor: pointer;
-}
-
-
-/* books */
-
-.library__container {
-  margin-top: 50px;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-template-rows: repeat(4, 300px);
-  grid-column-gap: 50px;
-  grid-row-gap: 80px;
-}
-
 .library__container__block {
   display: flex;
-  gap: 30px;
-}
-
-.book-info__amount__input {
-  width: 55px;
-  border: none;
-  text-align: center;
-  outline: none;
-  font-size: 16px;
-}
-
-.book-info__amount__btn {
-  width: 30px;
-  height: 30px;
-  border: none;
-  background-color: transparent;
-  font-size: 16px;
-  cursor: pointer;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .book-info__add-to-cart {
@@ -275,10 +142,11 @@ body {
   cursor: pointer;
 }
 
-.library__container__book-cover {
-  height: 100%;
+.library__container__box {
   display: flex;
-  align-items: stretch;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
 }
 
 .book-cover-img {
@@ -315,7 +183,16 @@ body {
 .book-info__copy__price {
   font-size: 18px;
   font-weight: 500;
-  margin-top: 20px;
+  margin-top: 10px;
+}
+
+.book-info__copy__desc-title {
+  margin-top: 10px;
+}
+
+.book-info__copy__desc {
+  width: 700px;
+  font-size: 14px;
 }
 
 
@@ -417,7 +294,7 @@ body {
 
 .btn-buy:hover {
   background: var(--light-grey);
-  transition: .3s all ease-out;
+  transition: 0.3s all ease-out;
 }
 
 #close-cart {
@@ -427,37 +304,4 @@ body {
   font-size: 2rem;
   color: var(--dark-grey);
   cursor: pointer;
-}
-
-
-@media only screen and (min-width: 992px) and (max-width: 1400px) {
-  .library__container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(4, 200px);
-    grid-column-gap: 20px;
-    grid-row-gap: 80px;
-  }
-
-  .book-cover-img {
-    height: 200px;
-  }
-
-  .book-info__copy__title {
-    font-size: 18px;
-  }
-
-  .book-info__copy__author, .book-info__copy__genre, .book-info__copy__date {
-    font-size: 14px;
-    margin-top: 5px;
-  }
-
-  .book-info__copy__price {
-    margin-top: 8px;
-    font-size: 16px;
-  }
-
-  .book-info__add-to-cart {
-    width: 100px;
-  }
 }

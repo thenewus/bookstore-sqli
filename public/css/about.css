@@ -19,15 +19,15 @@
 body {
   overflow-y: hidden;
 }
+
 a {
   text-decoration: none;
 }
 
-/* ------------------------navbar----------------------------------- */
+/* navbar */
 
 .container {
   width: 100%;
-
 }
 
 .container__navbar {
@@ -42,7 +42,6 @@ a {
 .navbar__ul {
   display: flex;
   gap: 25px;
-
 }
 
 .navbar__ul a {
@@ -87,7 +86,6 @@ a {
   align-items: center;
   gap: 5px;
   color: var(--black);
-
 }
 
 .navbar__cart {
@@ -101,9 +99,29 @@ a {
   cursor: pointer;
 }
 
-/* ------------------------end of navbar----------------------------------- */
+.navbar__username {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
 
-/* ------------------------about section----------------------------------- */
+.navbar_logout__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 35px;
+  background-color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--black);
+}
+
+/* end of navbar */
+
+
+/* about section */
 
 .about {
   display: flex;
@@ -165,43 +183,23 @@ a {
 }
 
 
-
-.navbar__username {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.navbar_logout__link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90px;
-  height: 35px;
-  background-color: var(--white);
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--black);
-}
-
-
-
 @media only screen and (min-width: 992px) and (max-width: 1400px) {
-    .about {
-        gap: 150px;
-        margin-top: 50px;
-      }
-    .about__right__img {
-        width: 250px;
-        border-radius: 8px;
-      }
-      
-    .about__left {
-        width: 400px;
-    }
-    .about__left__h1 {
-        font-weight: 900;
-        font-size: 32px;
-      }
+  .about {
+    gap: 150px;
+    margin-top: 50px;
+  }
+
+  .about__right__img {
+    width: 250px;
+    border-radius: 8px;
+  }
+    
+  .about__left {
+    width: 400px;
+  }
+
+  .about__left__h1 {
+    font-weight: 900;
+    font-size: 32px;
+  }
 }

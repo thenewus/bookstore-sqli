@@ -13,38 +13,17 @@
   --white: white;
   --light-grey: rgba(0, 0, 0, 0.5);
   --dark-grey:rgba(0, 0, 0, 0.75);
-
 }
+
 body {
   background-color: var(--black);
 }
 
 
-/* navbar logout profile */
-.navbar__username {
-  color: var(--white);
-  text-decoration: none;
-  font-weight: bold;
-}
-
-.navbar_logout__link {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 90px;
-  height: 35px;
-  background-color: var(--white);
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
-  color: var(--black);
-}
-
-/* ------------------------navbar----------------------------------- */
+/* navbar */
 
 .container {
   width: 100%;
-
 }
 
 .container__navbar {
@@ -58,7 +37,6 @@ body {
 .navbar__ul {
   display: flex;
   gap: 25px;
-
 }
 
 .navbar__ul a {
@@ -83,8 +61,6 @@ body {
   width: 20px;
 }
 
-
-
 .navbar__login-cart {
   display: flex;
   align-items: center;
@@ -107,7 +83,6 @@ body {
   gap: 5px;
   text-decoration: none;
   color: var(--black);
-
 }
 
 .navbar__cart {
@@ -121,9 +96,29 @@ body {
   cursor: pointer;
 }
 
-/* ------------------------end of navbar----------------------------------- */
+.navbar__username {
+  color: var(--white);
+  text-decoration: none;
+  font-weight: bold;
+}
 
-/* ------------------------hero section----------------------------------- */
+.navbar_logout__link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 90px;
+  height: 35px;
+  background-color: var(--white);
+  border-radius: 5px;
+  cursor: pointer;
+  text-decoration: none;
+  color: var(--black);
+}
+
+/* end of navbar */
+
+
+/* hero section */
 
 .hero {
   display: flex;
@@ -163,25 +158,21 @@ body {
 /* end of hero section */
 
 
-
-
-
-/* media queries */
-/* min-width 1025px, large screens */
 @media only screen and (min-width: 992px) and (max-width: 1400px) {
-    .hero__img {
-        width: 440px;
-        margin-top: -50px;
+  .hero__img {
+    width: 440px;
+    margin-top: -50px;
+  }
 
-    }
-    .hero__paragraph {
-        font-size: 18px;
-        margin-top: 0px;
-    }
-    .hero__btn {
-        width: 350px;
-        height: 50px;
-        font-size: 22px;
-        margin-top: 15px;
-    }
+  .hero__paragraph {
+    font-size: 18px;
+    margin-top: 0px;
+  }
+
+  .hero__btn {
+    width: 350px;
+    height: 50px;
+    font-size: 22px;
+    margin-top: 15px;
+  }
 }

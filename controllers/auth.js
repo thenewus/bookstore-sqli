@@ -108,12 +108,8 @@ exports.signup = (req, res) => {
         });
       }
     });
-
   })
-
-
 }
-
 
 exports.isLoggedIn = async (req, res, next) => {
   // console.log(req.cookies);

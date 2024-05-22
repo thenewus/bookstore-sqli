@@ -4,13 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}} | Library</title>
-  <link rel="stylesheet" href="/css/library.css">
+  <link rel="stylesheet" href="/css/book.css">
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@latest/css/boxicons.min.css">
 </head>
 <body>
+
   <!-- navbar -->
   <div class="container">
+
     <div class="container__navbar">
       <ul class="navbar__ul">
         <li><a href="/">Home</a></li>
@@ -47,29 +49,39 @@
           </div>
         </div>
       </div>
+
     </div>
+
   </div>
 
   <!-- end of navbar -->
 
+
   <!-- book section -->
+
   <div class="library__container__block product">
-    <div class="library__container__book-cover">
-      <img src="{{image}}" class="book-cover-img">
-    </div>
-    <div class="library__container__book-info">
-      <div class="book-info__copy">
-        <h2 class="book-info__copy__title">{{title}}</h2>
-        <p class="book-info__copy__author"><b>Author:</b> {{author}}</p>
-        <p class="book-info__copy__genre"><b>Genre:</b> {{genre}}</p>
-        <p class="book-info__copy__date"><b>Date:</b> {{date}}</p>
-        <p class="book-info__copy__price">{{price}}</p>
+    <div class="library__container__box">
+      <div class="library__container__book-cover">
+        <img src="{{image}}" class="book-cover-img">
       </div>
-      <div class="book-info__grid-end">
-        <button class="book-info__add-to-cart">Add to cart</button>
+      <div class="library__container__book-info">
+        <div class="book-info__copy">
+          <h2 class="book-info__copy__title">{{title}}</h2>
+          <p class="book-info__copy__author"><b>Author:</b> {{author}}</p>
+          <p class="book-info__copy__genre"><b>Genre:</b> {{genre}}</p>
+          <p class="book-info__copy__date"><b>Date:</b> {{date}}</p>
+          <p class="book-info__copy__price">{{price}}</p>
+          <h3 class="book-info__copy__desc-title">Description:</h3>
+          <p class="book-info__copy__desc">Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
+        </div>
+        <div class="book-info__grid-end">
+          <button class="book-info__add-to-cart">Add to cart</button>
+        </div>
       </div>
     </div>
   </div>
+
+{{!-- end of book section --}}
 
   <script src="/js/filter-search.js"></script>
   <script src="/js/onclick-genres.js"></script>
