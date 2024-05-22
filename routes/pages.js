@@ -18,6 +18,12 @@ router.get("/login", (req, res) => {
   res.render("login")
 })
 
+router.get("/about", authController.isLoggedIn, (req, res) => {
+  res.render("about", {
+    user: req.user
+  })
+})
+
 router.get('/profile', authController.isLoggedIn, (req, res) => {
   console.log(req.user);
   if( req.user ) {
@@ -484,11 +490,7 @@ router.get('/book/:bookId', authController.isLoggedIn, (req, res) => {
   }
 });
 
-router.get("/about", authController.isLoggedIn, (req, res) => {
-  res.render("about", {
-    user: req.user
-  })
-})
+
 
 
 module.exports = router
