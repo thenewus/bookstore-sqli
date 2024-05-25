@@ -14,15 +14,20 @@ exports.login = async (req, res) => {
   try {
     const { email, password } = req.body;
 
-    if( !email || !password ) {
+    if (!email || !password) {
       return res.status(400).render('login', {
         message: 'Please provide an email and password'
       })
     }
 
     db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
-      console.log(results);
-      if( !results || !(await bcrypt.compare(password, results[0].password)) ) {
+      if (error) {
+        console.log(error);
+        return res.status(500).render('login', {
+          message: 'Server error'
+        });
+      }
+      if (!results || results.length === 0 || !(await bcrypt.compare(password, results[0].password))) {
         res.status(401).render('login', {
           message: 'Email or Password is incorrect'
         })
@@ -42,14 +47,16 @@ exports.login = async (req, res) => {
           httpOnly: true
         }
 
-        res.cookie('jwt', token, cookieOptions );
+        res.cookie('jwt', token, cookieOptions);
         res.status(200).redirect("/");
       }
-
     })
 
   } catch (error) {
     console.log(error);
+    res.status(500).render('login', {
+      message: 'Server error'
+    });
   }
 }
 
@@ -59,21 +66,22 @@ exports.signup = (req, res) => {
   const { name, email, password, passwordConf } = req.body
 
   db.query('SELECT email FROM users WHERE email = ?', [email], async (error, results) => {
-    if(error) {
+    if (error) {
       console.log(error);
+      return res.status(500).render('signup', {
+        message: 'Server error'
+      });
     }
 
-    if(results.length > 0) {
+    if (results.length > 0) {
       return res.render('signup', {
         message: 'That email is already in use'
       })
-    }
-    else if(password !== passwordConf) {
+    } else if (password !== passwordConf) {
       return res.render('signup', {
         message: 'Passwords do not match'
       })
     }
-
 
     let hashedPassword = await bcrypt.hash(password, 8)
     console.log(hashedPassword)
@@ -81,6 +89,9 @@ exports.signup = (req, res) => {
     db.query('INSERT INTO users SET ?', { name: name, email: email, password: hashedPassword }, (error, results) => {
       if (error) {
         console.log(error);
+        return res.status(500).render('signup', {
+          message: 'Server error'
+        });
       } else {
         console.log(results);
 
@@ -88,6 +99,9 @@ exports.signup = (req, res) => {
         db.query('SELECT * FROM users WHERE email = ?', [email], async (error, results) => {
           if (error) {
             console.log(error);
+            return res.status(500).render('signup', {
+              message: 'Server error'
+            });
           } else {
             const id = results[0].id;
 
@@ -112,29 +126,23 @@ exports.signup = (req, res) => {
 }
 
 exports.isLoggedIn = async (req, res, next) => {
-  // console.log(req.cookies);
-  if( req.cookies.jwt) {
+  if (req.cookies.jwt) {
     try {
       //1) verify the token
       const decoded = await promisify(jwt.verify)(req.cookies.jwt,
-      process.env.JWT_SECRET
+        process.env.JWT_SECRET
       );
 
       console.log(decoded);
 
       //2) Check if the user still exists
       db.query('SELECT * FROM users WHERE id = ?', [decoded.id], (error, result) => {
-        console.log(result);
-
-        if(!result) {
+        if (error || !result || result.length === 0) {
           return next();
         }
 
         req.user = result[0];
-        console.log("user is")
-        console.log(req.user);
         return next();
-
       });
     } catch (error) {
       console.log(error);
@@ -147,7 +155,7 @@ exports.isLoggedIn = async (req, res, next) => {
 
 exports.logout = async (req, res) => {
   res.cookie('jwt', 'logout', {
-    expires: new Date(Date.now() + 2*1000),
+    expires: new Date(Date.now() + 2 * 1000),
     httpOnly: true
   });
 

@@ -1,39 +1,38 @@
-const express = require("express")
-const authController = require('../controllers/auth')
+const express = require("express");
+const authController = require('../controllers/auth');
 
-const router = express.Router()
+const router = express.Router();
 
 router.get('/', authController.isLoggedIn, (req, res) => {
   res.render('index', {
     user: req.user
-  })
-})
+  });
+});
 
 router.get("/signup", (req, res) => {
-  res.render("signup")
-})
+  res.render("signup");
+});
 
 router.get("/login", (req, res) => {
-  res.render("login")
-})
+  res.render("login");
+});
 
 router.get("/about", authController.isLoggedIn, (req, res) => {
   res.render("about", {
     user: req.user
-  })
-})
+  });
+});
 
 router.get('/profile', authController.isLoggedIn, (req, res) => {
   console.log(req.user);
-  if( req.user ) {
+  if (req.user) {
     res.render('profile', {
       user: req.user
     });
   } else {
     res.redirect('/login');
   }
-})
-
+});
 
 const books = [
   {
@@ -468,9 +467,7 @@ const books = [
     price: '$16.00',
     image: '/images/library images/young-forever.jpg'
   },
-  
 ];
-
 
 router.get('/library', authController.isLoggedIn, (req, res) => {
   res.render('library', { books, user: req.user });
@@ -488,5 +485,4 @@ router.get('/book/:bookId', authController.isLoggedIn, (req, res) => {
   }
 });
 
-
-module.exports = router
+module.exports = router;
