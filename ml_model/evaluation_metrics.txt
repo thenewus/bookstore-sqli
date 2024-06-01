@@ -1,9 +1,9 @@
 Model Evaluation Metrics:
 
-Accuracy : 0.9823
-Precision: 0.9677
+Accuracy : 0.9821
+Precision: 0.9674
 Recall   : 0.9988
-F1 Score : 0.9830
+F1 Score : 0.9828
 
 Detailed Classification Report:
               precision    recall  f1-score   support
