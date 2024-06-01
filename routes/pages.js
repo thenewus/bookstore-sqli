@@ -1,28 +1,51 @@
 const express = require("express");
 const authController = require('../controllers/auth');
+const mysql = require('mysql');
 
 const router = express.Router();
 
+// Настройка соединения с базой данных MySQL
+const db = mysql.createConnection({
+  host: process.env.DATABASE_HOST,
+  user: process.env.DATABASE_USER,
+  password: process.env.DATABASE_PASSWORD,
+  database: process.env.DATABASE,
+});
+
+// Подключение к базе данных MySQL
+db.connect((error) => {
+  if (error) {
+    console.log('Database connection error:', error);
+  } else {
+    console.log('MySQL connected!');
+  }
+});
+
+// Маршрут для главной страницы
 router.get('/', authController.isLoggedIn, (req, res) => {
   res.render('index', {
     user: req.user
   });
 });
 
+// Маршрут для страницы регистрации
 router.get("/signup", (req, res) => {
   res.render("signup");
 });
 
+// Маршрут для страницы входа
 router.get("/login", (req, res) => {
   res.render("login");
 });
 
+// Маршрут для страницы "О нас"
 router.get("/about", authController.isLoggedIn, (req, res) => {
   res.render("about", {
     user: req.user
   });
 });
 
+// Маршрут для профиля пользователя
 router.get('/profile', authController.isLoggedIn, (req, res) => {
   console.log(req.user);
   if (req.user) {
@@ -34,6 +57,7 @@ router.get('/profile', authController.isLoggedIn, (req, res) => {
   }
 });
 
+// Массив с книгами для библиотеки
 const books = [
   {
     id: 'dune',
@@ -469,11 +493,12 @@ const books = [
   },
 ];
 
+// Маршрут для страницы библиотеки
 router.get('/library', authController.isLoggedIn, (req, res) => {
   res.render('library', { books, user: req.user });
 });
 
-// Dynamic route to render individual book pages
+// Динамический маршрут для отображения индивидуальных страниц книг
 router.get('/book/:bookId', authController.isLoggedIn, (req, res) => {
   const bookId = req.params.bookId;
   const book = books.find(b => b.id === bookId);

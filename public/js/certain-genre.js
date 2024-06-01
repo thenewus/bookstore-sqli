@@ -24,10 +24,8 @@ function showBooksByGenre(genre) {
 // Добавляем обработчики событий для каждой ссылки на жанр
 genreLinks.forEach(genreLink => {
   genreLink.addEventListener('click', function(event) {
-    event.preventDefault(); // Предотвращаем стандартное действие ссылки
-    const genre = genreLink.innerText.toLowerCase(); // Получаем текст ссылки (название жанра)
-    showBooksByGenre(genre); // Показываем книги выбранного жанра
+    event.preventDefault();
+    const genre = genreLink.innerText.toLowerCase();
+    showBooksByGenre(genre); 
   });
 });
-
-

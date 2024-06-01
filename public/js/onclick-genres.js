@@ -8,24 +8,24 @@ document.addEventListener("DOMContentLoaded", function() {
   // Функция для скрытия или отображения списка жанров
   function togglePopupUl() {
     if (isPopupUlVisible) {
-      popupShowUl.style.display = 'none'; // Скрываем список жанров
+      popupShowUl.style.display = 'none';
     } else {
-      popupShowUl.style.display = 'block'; // Показываем список жанров
+      popupShowUl.style.display = 'block';
     }
     isPopupUlVisible = !isPopupUlVisible; // Инвертируем флаг
   }
 
   // Обработчик события для клика по кнопке "Genres"
   popupLink.addEventListener('click', function(event) {
-    event.preventDefault(); // Предотвращаем стандартное действие ссылки
-    togglePopupUl(); // Вызываем функцию для скрытия или отображения списка жанров
+    event.preventDefault();
+    togglePopupUl();
   });
 
   // Обработчик события для клика по документу для скрытия списка при клике вне него
   document.addEventListener('click', function(event) {
     const isClickedInsidePopup = popupLink.contains(event.target) || popupShowUl.contains(event.target);
     if (!isClickedInsidePopup && isPopupUlVisible) {
-      togglePopupUl(); // Вызываем функцию для скрытия списка жанров, если оно отображается
+      togglePopupUl();
     }
   });
 });

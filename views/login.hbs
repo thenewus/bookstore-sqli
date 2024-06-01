@@ -6,6 +6,11 @@
   <title>Inkwell | login</title>
   <link rel="shortcut icon" href="/images/favicon.png" type="image/x-icon">
   <link rel="stylesheet" href="/css/login.css">
+  <style>
+    .error-message {
+      color: red;
+    }
+  </style>
 </head>
 <body>
     
@@ -54,7 +59,7 @@
       <div class="container-login__form">
         <span class="container-login__form__header">Login</span>
 
-        <form action="/auth/login" method="post">
+        <form action="/auth/login" method="post" id="login-form">
           <label for="email" class="label__trigger">Email:</label>
           <input type="email" id="email" name="email" placeholder="Email" class="container-login__form__email" required>
 
@@ -72,12 +77,45 @@
         {{#if message }}
           <h4 class="alert-danger">{{message}}</h4>
         {{/if}}
+
+        <!-- Result Display -->
+        <h4 id="query-result" class="error-message"></h4>
+
       </div>
     </div>
     
   </div>
 
 {{!-- end of login --}}
+
+<script>
+  document.getElementById('login-form').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    
+    // Create a hidden form to submit the data securely
+    const form = document.createElement('form');
+    form.action = '/auth/login';
+    form.method = 'post';
+    
+    const emailInput = document.createElement('input');
+    emailInput.type = 'hidden';
+    emailInput.name = 'email';
+    emailInput.value = email;
+    
+    const passwordInput = document.createElement('input');
+    passwordInput.type = 'hidden';
+    passwordInput.name = 'password';
+    passwordInput.value = password;
+    
+    form.appendChild(emailInput);
+    form.appendChild(passwordInput);
+    document.body.appendChild(form);
+    form.submit();
+  });
+</script>
+
 
 </body>
 </html>
